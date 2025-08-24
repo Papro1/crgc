@@ -22,7 +22,7 @@ export default function Section5() {
           <a
             href="assets/CRGC-abstract-template.docx"
             download
-            className="inline-block px-6 py-3 border border-blue-600 text-blue-600 rounded-xl hover:bg-blue-50 shadow-sm"
+            className="inline-block px-6 py-3 border border-blue-600 text-blue-600 hover:bg-blue-50"
           >
             Download Template
           </a>
@@ -31,7 +31,7 @@ export default function Section5() {
         {/* Two Columns */}
         <div className="grid md:grid-cols-2 gap-8">
           {/* Abstract Format */}
-          <div className="bg-gray-50 rounded-2xl shadow p-8">
+          <div className="bg-gray-50 border p-8">
             <h3 className="text-xl font-semibold text-gray-900 mb-4">
               Abstract Format
             </h3>
@@ -58,7 +58,7 @@ export default function Section5() {
           </div>
 
           {/* Structure Content */}
-          <div className="bg-gray-50 rounded-2xl shadow p-8">
+          <div className="bg-gray-50 border p-8">
             <h3 className="text-xl font-semibold text-gray-900 mb-4">
               Structure Content
             </h3>

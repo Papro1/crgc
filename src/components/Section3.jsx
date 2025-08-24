@@ -4,16 +4,16 @@ import React from "react";
 export default function Section3() {
   const logos = [
     {
-      src: "https://placehold.co/220x60?text=Climarys+Logo",
-      alt: "Logo UB",
+      src: "/igebu.png",
+      alt: "IGEBU",
     },
     {
-      src: "https://placehold.co/200x60?text=CERD+Logo",
-      alt: "Logo IGEBU",
+      src: "/ub.png",
+      alt: "UB",
     },
     {
-      src: "https://placehold.co/200x60?text=MENSUR+Logo",
-      alt: "Logo Climarys",
+      src: "/rtnb.webp",
+      alt: "RTNB",
     },
   ];
 
@@ -23,9 +23,9 @@ export default function Section3() {
         {/* Eyebrow title */}
         <h2
           id="orgs"
-          className="text-base font-semibold text-blue-600 uppercase tracking-wide"
+          className="text-2xl md:text-4xl font-semibold text-blue-600 tracking-wide"
         >
-          Organized by
+          Partners
         </h2>
 
         {/* Logos grid */}
@@ -37,12 +37,12 @@ export default function Section3() {
           {logos.map((logo, idx) => (
             <div
               key={idx}
-              className="flex justify-center items-center p-4 bg-white rounded-xl shadow hover:shadow-lg transition"
+              className="flex justify-center items-center px-4 py-6 border bg-white transition"
             >
               <img
                 src={logo.src}
                 alt={logo.alt}
-                className="max-h-16 object-contain"
+                className="max-h-20 object-contain"
               />
             </div>
           ))}

@@ -57,7 +57,7 @@ export default function Register() {
             e.preventDefault();
             alert("Form submitted ✅");
           }}
-          className="bg-white shadow rounded-2xl p-8 space-y-6"
+          className="bg-white p-8 space-y-6 border"
         >
           {/* STEP 1 */}
           {step === 0 && (
@@ -65,26 +65,28 @@ export default function Register() {
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="fullname" className="block font-medium">
-                    Nom complet *
+                    Nom complet
                   </label>
                   <input
                     id="fullname"
                     name="fullname"
                     type="text"
+                    placeholder="Nom Complet"
                     required
-                    className="w-full border rounded-lg p-3"
+                    className="w-full border p-3"
                   />
                 </div>
                 <div>
                   <label htmlFor="email" className="block font-medium">
-                    Adresse e-mail *
+                    Adresse e-mail
                   </label>
                   <input
                     id="email"
                     name="email"
                     type="email"
+                    placeholder="Email"
                     required
-                    className="w-full border rounded-lg p-3"
+                    className="w-full border p-3"
                   />
                 </div>
               </div>
@@ -98,7 +100,7 @@ export default function Register() {
                     name="phone"
                     type="tel"
                     placeholder="+253 …"
-                    className="w-full border rounded-lg p-3"
+                    className="w-full border p-3"
                   />
                 </div>
                 <div>
@@ -110,7 +112,7 @@ export default function Register() {
                     name="country"
                     type="text"
                     placeholder="Bujumbura"
-                    className="w-full border rounded-lg p-3"
+                    className="w-full border p-3"
                   />
                 </div>
               </div>
@@ -129,7 +131,7 @@ export default function Register() {
                     id="organization"
                     name="organization"
                     type="text"
-                    className="w-full border rounded-lg p-3"
+                    className="w-full border p-3"
                   />
                 </div>
                 <div>
@@ -140,20 +142,20 @@ export default function Register() {
                     id="role"
                     name="role"
                     type="text"
-                    className="w-full border rounded-lg p-3"
+                    className="w-full border p-3"
                   />
                 </div>
               </div>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="category" className="block font-medium">
-                    Catégorie de participation *
+                    Catégorie de participation
                   </label>
                   <select
                     id="category"
                     name="category"
                     required
-                    className="w-full border rounded-lg p-3"
+                    className="w-full border p-3"
                   >
                     <option value="">-- Sélectionner --</option>
                     <option value="government">Gouvernement</option>
@@ -165,13 +167,13 @@ export default function Register() {
                 </div>
                 <div>
                   <label htmlFor="participation" className="block font-medium">
-                    Type de participation *
+                    Type de participation
                   </label>
                   <select
                     id="participation"
                     name="participation"
                     required
-                    className="w-full border rounded-lg p-3"
+                    className="w-full border p-3"
                   >
                     <option value="">-- Sélectionner --</option>
                     <option value="in_person">Présentiel</option>
@@ -182,7 +184,7 @@ export default function Register() {
               <div>
                 <label className="block font-medium">Jours de présence</label>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 mt-2">
-                   {days.map((d,i) => <label key={i} className="flex items-center space-x-2 border rounded-lg p-2">
+                   {days.map((d,i) => <label key={i} className="flex items-center space-x-2 border p-2">
                         <input type="checkbox" name="days" value={d.id} />{" "}
                         <span>Jour {i+1}</span>
                       </label>
@@ -201,7 +203,7 @@ export default function Register() {
                   { workshops.map((workshop, idx) => (
                     <label
                       key={idx}
-                      className="flex items-center space-x-2 border rounded-lg p-2 cursor-pointer"
+                      className="flex items-center space-x-2 border p-2 cursor-pointer"
                     >
                       <input
                         type="checkbox"
@@ -235,7 +237,7 @@ export default function Register() {
                     name="access"
                     type="text"
                     placeholder="Interprétation, mobilité…"
-                    className="w-full border rounded-lg p-3"
+                    className="w-full border p-3"
                   />
                 </div>
               </div>
@@ -246,7 +248,7 @@ export default function Register() {
                 <select
                   id="needvisa"
                   name="needvisa"
-                  className="w-full border rounded-lg p-3"
+                  className="w-full border p-3"
                 >
                   <option value="no">Non</option>
                   <option value="yes">Oui</option>
@@ -261,7 +263,7 @@ export default function Register() {
                   name="message"
                   placeholder="Votre message"
                   rows="4"
-                  className="w-full border rounded-lg p-3"
+                  className="w-full border p-3"
                 ></textarea>
               </div>
               <div className="flex items-start space-x-3">
@@ -297,7 +299,7 @@ export default function Register() {
               <button
                 type="button"
                 onClick={prevStep}
-                className="px-6 py-3 rounded-xl border border-gray-300 text-gray-600 hover:bg-gray-100"
+                className="px-6 py-3 border border-gray-300 text-gray-600 hover:bg-gray-100"
               >
                 Précédent
               </button>
@@ -306,7 +308,7 @@ export default function Register() {
               <button
                 type="button"
                 onClick={nextStep}
-                className="ml-auto px-6 py-3 rounded-xl bg-blue-600 text-white hover:bg-blue-700"
+                className="ml-auto px-6 py-3 bg-blue-600 text-white hover:bg-blue-700"
               >
                 Suivant
               </button>
@@ -314,7 +316,7 @@ export default function Register() {
             {step === steps.length - 1 && (
               <button
                 type="submit"
-                className="ml-auto px-6 py-3 rounded-xl bg-blue-600 text-white hover:bg-blue-700"
+                className="ml-auto px-6 py-3 bg-blue-600 text-white hover:bg-blue-700"
               >
                 S'inscrire
               </button>

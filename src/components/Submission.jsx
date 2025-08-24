@@ -1,6 +1,11 @@
 import { useState } from "react";
+import { useGlobal } from "../GlobalContext";
+import axios from "axios";
 
 export default function Submission() {
+  const {
+    baseURL, submission, setSubmission
+  } = useGlobal()
   const [step, setStep] = useState(0);
 
   const steps = [1, 2, 3];
@@ -12,6 +17,22 @@ export default function Submission() {
   const prevStep = () => {
     if (step > 0) setStep(step - 1);
   };
+
+  const setValue = (e) => {
+    const { name, value } = e.target
+    setSubmission(prev => ({...prev, [name]:value}))
+  }
+ //const submission = { author, email,affiliations,presenting,title,theme,keywords,abstract,file,notes,consent};
+ // console.log(submission);
+  const submit = (e)=> {
+   //if(!submission.author || !submission.email || !submission.affiliation || !submission.presenting || !submission.title || !submission.theme || !submission.keywords || !submission.abstract || !submission.file_path || !submission.notes || !submission.consent || !submission.workshop){
+   // return ;
+//} 
+axios.post(`${baseURL}/submission/`,submission)
+ .then(resp => {
+   console.log("sever run:",resp.data);
+  } )
+}
 
   return (
     <section
@@ -47,7 +68,7 @@ export default function Submission() {
             e.preventDefault();
             alert("Abstract submitted ✅");
           }}
-          className="bg-white shadow rounded-2xl p-8 space-y-6"
+          className="bg-white p-8 space-y-6 border"
         >
           {/* STEP 1 */}
           {step === 0 && (
@@ -55,51 +76,55 @@ export default function Submission() {
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="a_name" className="block font-medium">
-                    Main author (underline) *
+                    Main author (underline)
                   </label>
                   <input
                     id="a_name"
                     name="author"
+                    onChange={setValue}
                     type="text"
                     required
-                    className="w-full border rounded-lg p-3"
+                    className="w-full border p-3"
                   />
                 </div>
                 <div>
                   <label htmlFor="a_email" className="block font-medium">
-                    Email *
+                    Email
                   </label>
                   <input
                     id="a_email"
                     name="email"
+                    onChange={setValue} 
                     type="email"
                     required
-                    className="w-full border rounded-lg p-3"
+                    className="w-full border p-3"
                   />
                 </div>
               </div>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="a_aff" className="block font-medium">
-                    Affiliation(s) (italics) *
+                    Affiliation(s) (italics)
                   </label>
                   <input
                     id="a_aff"
-                    name="affiliations"
+                    name="affiliation"
+                    onChange={setValue} 
                     type="text"
                     required
-                    className="w-full border rounded-lg p-3"
+                    className="w-full p-3"
                   />
                 </div>
                 <div>
                   <label htmlFor="a_presenting" className="block font-medium">
-                    Presenting author *
+                    Presenting author
                   </label>
                   <select
                     id="a_presenting"
                     name="presenting"
+                    onChange={setValue} 
                     required
-                    className="w-full border rounded-lg p-3"
+                    className="w-full border p-3"
                   >
                     <option value="">-- Select --</option>
                     <option value="self">Self (main author)</option>
@@ -115,26 +140,28 @@ export default function Submission() {
             <div className="space-y-6">
               <div>
                 <label htmlFor="a_title" className="block font-medium">
-                  Title (concise, bold, lower case, centred) *
+                  Title (concise, bold, lower case, centred)
                 </label>
                 <input
                   id="a_title"
                   name="title"
+                  onChange={setValue} 
                   type="text"
                   required
-                  className="w-full border rounded-lg p-3"
+                  className="w-full border p-3"
                 />
               </div>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="a_theme" className="block font-medium">
-                    Theme *
+                    Theme
                   </label>
                   <select
                     id="a_theme"
                     name="theme"
+                    onChange={setValue} 
                     required
-                    className="w-full border rounded-lg p-3"
+                    className="w-full border p-3"
                   >
                     <option value="">-- Select a theme --</option>
                     <option>
@@ -165,19 +192,21 @@ export default function Submission() {
                   <input
                     id="a_keywords"
                     name="keywords"
+                    onChange={setValue} 
                     type="text"
                     placeholder="e.g. adaptation; drought; modeling"
-                    className="w-full border rounded-lg p-3"
+                    className="w-full border p-3"
                   />
                 </div>
               </div>
               <div>
                 <label htmlFor="a_text" className="block font-medium">
-                  Abstract (≤ 300 words) *
+                  Abstract (≤ 300 words)
                 </label>
                 <textarea
                   id="a_text"
                   name="abstract"
+                  onChange={setValue} 
                   maxLength={2400}
                   rows="6"
                   required
@@ -201,9 +230,10 @@ export default function Submission() {
                   <input
                     id="a_file"
                     name="file"
+                    onChange={setValue} 
                     type="file"
                     accept=".doc,.docx,.pdf"
-                    className="w-full border rounded-lg p-3"
+                    className="w-full border p-3"
                   />
                 </div>
                 <div>
@@ -213,8 +243,9 @@ export default function Submission() {
                   <input
                     id="a_notes"
                     name="notes"
+                    onChange={setValue} 
                     type="text"
-                    className="w-full border rounded-lg p-3"
+                    className="w-full border p-3"
                   />
                 </div>
               </div>
@@ -222,6 +253,7 @@ export default function Submission() {
                 <input
                   id="consentAbs"
                   name="consent"
+                  onChange={setValue} 
                   type="checkbox"
                   required
                   className="mt-1"
@@ -243,7 +275,7 @@ export default function Submission() {
               <button
                 type="button"
                 onClick={prevStep}
-                className="px-6 py-3 rounded-xl border border-gray-300 text-gray-600 hover:bg-gray-100"
+                className="px-6 py-3 border border-gray-300 text-gray-600 hover:bg-gray-100"
               >
                 Précédent
               </button>
@@ -252,15 +284,16 @@ export default function Submission() {
               <button
                 type="button"
                 onClick={nextStep}
-                className="ml-auto px-6 py-3 rounded-xl bg-blue-600 text-white hover:bg-blue-700"
+                className="ml-auto px-6 py-3 bg-blue-600 text-white hover:bg-blue-700"
               >
                 Suivant
               </button>
             )}
             {step === steps.length - 1 && (
               <button
-                type="submit"
-                className="ml-auto px-6 py-3 rounded-xl bg-blue-600 text-white hover:bg-blue-700"
+                type="button"
+                onClick={submit}
+                className="ml-auto px-6 py-3 bg-blue-600 text-white hover:bg-blue-700"
               >
                 Submit Abstract
               </button>

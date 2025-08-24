@@ -58,19 +58,19 @@ export default function Footer() {
               Still Have Questions?
             </h3>
             <p className="text-gray-400 mb-6">
-              Email us — Our team will respond within 24 hours.
+              Email us Our team will respond within 24 hours.
             </p>
             <form className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
                 <input
                   type="text"
-                  placeholder="Your Name *"
+                  placeholder="Your Name"
                   required
                   className="w-full p-3 rounded-lg border border-gray-600 bg-gray-900 text-white"
                 />
                 <input
                   type="email"
-                  placeholder="Your Email *"
+                  placeholder="Your Email"
                   required
                   className="w-full p-3 rounded-lg border border-gray-600 bg-gray-900 text-white"
                 />
@@ -78,7 +78,7 @@ export default function Footer() {
               <div className="grid grid-cols-2 gap-4">
                 <input
                   type="text"
-                  placeholder="Subject *"
+                  placeholder="Subject"
                   required
                   className="w-full p-3 rounded-lg border border-gray-600 bg-gray-900 text-white"
                 />
@@ -89,14 +89,14 @@ export default function Footer() {
                 />
               </div>
               <textarea
-                placeholder="Your Question *"
+                placeholder="Your Question"
                 required
                 rows="4"
                 className="w-full p-3 rounded-lg border border-gray-600 bg-gray-900 text-white"
               ></textarea>
               <button
                 type="submit"
-                className="px-6 py-3 rounded-lg bg-blue-600 text-white hover:bg-blue-700"
+                className="px-6 py-3 rounded bg-blue-600 text-white hover:bg-blue-700"
               >
                 Submit Question
               </button>

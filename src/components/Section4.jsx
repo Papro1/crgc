@@ -6,7 +6,7 @@ export default function Section4() {
     <section className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 space-y-20">
         {/* 1. Overview */}
-        <div className="bg-white rounded-2xl shadow p-8">
+        <div className="bg-white border  p-8">
           <h2
             className="text-3xl font-bold text-gray-900 mb-4"
             id="overview"
@@ -29,7 +29,7 @@ export default function Section4() {
 
         {/* 2. Dates & Venue */}
         <div
-          className="bg-white rounded-2xl shadow p-8 grid md:grid-cols-2 gap-6 items-center"
+          className="bg-white   p-8 grid md:grid-cols-2 gap-6 items-center"
           aria-labelledby="whenwhere"
         >
           <div>
@@ -48,13 +48,13 @@ export default function Section4() {
             <div className="flex flex-wrap gap-4">
               <a
                 href="#register"
-                className="px-5 py-3 bg-blue-600 text-white rounded-xl shadow hover:bg-blue-700"
+                className="px-7 py-3  bg-blue-600 text-white border hover:bg-white border-blue-600 hover:text-blue-600"
               >
                 Register Now
               </a>
               <a
                 href="#abstract"
-                className="px-5 py-3 border border-blue-600 text-blue-600 rounded-xl hover:bg-blue-50"
+                className="px-5 py-3 border border-blue-600 hover:text-white text-blue-600 hover:bg-blue-600 hover:bg-blue-50"
               >
                 Submit Abstract
               </a>
@@ -65,7 +65,7 @@ export default function Section4() {
         {/* 3. Call for Abstracts */}
         <div
           id="abstract"
-          className="bg-white rounded-2xl shadow p-8 grid md:grid-cols-2 gap-8"
+          className="bg-white border p-8 grid md:grid-cols-2 gap-8"
           aria-labelledby="cfa"
         >
           <div>
@@ -105,7 +105,7 @@ export default function Section4() {
             </ul>
             <a
               href="#abstract-form"
-              className="px-5 py-3 bg-blue-600 text-white rounded-xl shadow hover:bg-blue-700"
+              className="px-5 py-3 bg-blue-600 text-white hover:bg-blue-700"
             >
               Submit Abstract
             </a>
@@ -114,10 +114,10 @@ export default function Section4() {
 
         {/* 4. Objectives & Stats */}
         <div
-          className="bg-white rounded-2xl shadow p-8 grid md:grid-cols-2 gap-8"
+          className="bg-white grid md:grid-cols-2 gap-8"
           aria-labelledby="objectives"
         >
-          <div>
+          <div className="p-6">
             <p
               id="objectives"
               className="uppercase text-sm font-semibold text-blue-600 mb-2"
@@ -162,20 +162,20 @@ export default function Section4() {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-2 gap-6 items-center text-center">
-            <div className="bg-blue-50 rounded-xl p-6">
+          <div className="grid grid-cols-2 gap-6 p-6 items-center text-center">
+            <div className="bg-blue-50 p-6">
               <div className="text-3xl font-bold text-blue-600">90+</div>
               <div className="text-gray-700">Speakers</div>
             </div>
-            <div className="bg-blue-50 rounded-xl p-6">
+            <div className="bg-blue-50 p-6">
               <div className="text-3xl font-bold text-blue-600">6</div>
               <div className="text-gray-700">Sponsors</div>
             </div>
-            <div className="bg-blue-50 rounded-xl p-6">
+            <div className="bg-blue-50 p-6">
               <div className="text-3xl font-bold text-blue-600">5</div>
               <div className="text-gray-700">Workshops</div>
             </div>
-            <div className="bg-blue-50 rounded-xl p-6">
+            <div className="bg-blue-50 p-6">
               <div className="text-3xl font-bold text-blue-600">500+</div>
               <div className="text-gray-700">Participants</div>
             </div>

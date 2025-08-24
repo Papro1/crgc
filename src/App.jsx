@@ -8,6 +8,7 @@ import { useGlobal } from "./GlobalContext";
 import axios from "axios"
 function App(){
   const {
+    baseURL,
     workshops, setWorkshops,
     selectedWorkshops, setSelectedWorkshops,
     days, setDays,
@@ -17,23 +18,23 @@ function App(){
   } =  useGlobal()
   //server request
     useEffect(() => {
-      axios.get("http://192.168.43.95:8000/api/day/")
+      axios.get(`${baseURL}/day/`)
         .then(resp => setDays(resp.data))
         .catch(err => console.error(err))
 
-      axios.get("http://192.168.43.95:8000/api/workshop/")
+      axios.get(`${baseURL}/workshop/`)
         .then(resp => setWorkshops(resp.data))
         .catch(err => console.error(err))
 
-      axios.get("http://192.168.43.95:8000/api/participant/")
+      axios.get(`${baseURL}/participant/`)
         .then(resp => setParticipants(resp.data))
         .catch(err => console.error(err))
 
-      axios.get("http://192.168.43.95:8000/api/submission/")
+      axios.get(`${baseURL}/submission/`)
         .then(resp => setSubmissions(resp.data))
         .catch(err => console.error(err))
 
-      axios.get("http://192.168.43.95:8000/api/contact/")
+      axios.get("${baseURL}/contact/")
         .then(resp => setContacts(resp.data))
         .catch(err => console.error(err))
 
